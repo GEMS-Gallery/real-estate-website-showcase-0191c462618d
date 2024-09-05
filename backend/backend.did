@@ -1,0 +1,21 @@
+type Result = 
+ variant {
+   err: text;
+   ok: PropertyDetails;
+ };
+type PropertyDetails = 
+ record {
+   address: text;
+   bathrooms: nat;
+   bedrooms: nat;
+   description: text;
+   id: nat;
+   images: vec text;
+   price: nat;
+   squareFootage: nat;
+ };
+service : {
+  addProperty: (PropertyDetails) -> (nat);
+  getProperties: () -> (vec PropertyDetails) query;
+  getProperty: (nat) -> (Result) query;
+}
